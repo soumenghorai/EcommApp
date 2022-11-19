@@ -13,7 +13,10 @@ categoryRouter.get(
 
 categoryRouter.put(
   "/:categoryId",
-  [requestValidator.validatorReqForCategoryName],
+  [
+    requestValidator.validatorReqForCategoryName,
+    requestValidator.validateReqForCategoryId,
+  ],
   categoryController.updateCategoryById
 );
 

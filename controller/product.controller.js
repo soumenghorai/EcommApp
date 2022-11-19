@@ -1,6 +1,45 @@
 let Products = require("./../model/product");
 let dbConnection = require("./../config/db.config");
-const { Sequelize } = require("sequelize");
+const Sequelize = require("sequelize");
+
+let insertProducts = async (req, res, next) => {
+  await Products.bulkCreate([
+    {
+      name: "Hrx",
+      categoryId: 1,
+      price: 18000,
+    },
+    {
+      name: "Iphone 13",
+      categoryId: 2,
+      price: 60000,
+    },
+    {
+      name: "Sony bravia",
+      categoryId: 3,
+      price: 40000,
+    },
+    {
+      name: "Boat Rugged",
+      categoryId: 4,
+      price: 4000,
+    },
+    {
+      name: "JBL Storm",
+      categoryId: 4,
+      price: 9000,
+    },
+    {
+      name: "Vu 5",
+      categoryId: 3,
+      price: 32000,
+    },
+  ]);
+
+  res.status(201).json({
+    message: "Products added",
+  });
+};
 
 let getAllProducts = async (req, res, next) => {
   let categoryId = req.query.categoryId;
@@ -72,41 +111,6 @@ let getProductById = async (req, res, next) => {
 //     console.log("Table is created");
 // }
 
-let insertProducts = async () => {
-  await Products.bulkCreate([
-    {
-      name: "Samsung Galaxy Note",
-      categoryId: 1,
-      price: 18000,
-    },
-    {
-      name: "Iphone 13",
-      categoryId: 1,
-      price: 60000,
-    },
-    {
-      name: "Sony bravia",
-      categoryId: 2,
-      price: 40000,
-    },
-    {
-      name: "Boat Rugged",
-      categoryId: 5,
-      price: 4000,
-    },
-    {
-      name: "JBL Storm",
-      categoryId: 5,
-      price: 9000,
-    },
-    {
-      name: "Vu 5",
-      categoryId: 2,
-      price: 32000,
-    },
-  ]);
-};
-
 let addNewProduct = async (req, res, next) => {
   let productToAdd = req.body.name;
   await Products.create({
@@ -152,7 +156,8 @@ let updateProductById = async (req, res, next) => {
 module.exports = {
   getAllProducts,
   getProductById,
-  addNewProduct,
-  deleteProductById,
-  updateProductById,
+  // addNewProduct,
+  // deleteProductById,
+  // updateProductById,
+  insertProducts,
 };

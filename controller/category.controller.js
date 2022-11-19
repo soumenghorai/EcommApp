@@ -1,28 +1,11 @@
 let Categories = require("./../model/category");
-let dbConnection = require("./../config/db.config");
+// let dbConnection = require("./../config/db.config");
 
-let createTable = async () => {
-  await dbConnection.sync({ force: true });
-  insertCategories();
-  console.log("Table created successfully");
-};
-
-let insertCategories = (async = async () => {
-  await Categories.bulkCreate([
-    {
-      name: "Fashion",
-    },
-    {
-      name: "Mobile",
-    },
-    {
-      name: "Electronics",
-    },
-    {
-      name: "Appliances",
-    },
-  ]);
-});
+// let createTable = async () => {
+//   await dbConnection.sync({ force: true });
+//   insertCategories();
+//   console.log("Table created successfully");
+// };
 
 let getAllCategories = async (req, res, next) => {
   let categories = await Categories.findAll();
@@ -38,8 +21,8 @@ let getCategoryById = async (req, res, next) => {
       id: id,
     },
   });
-  res.writeHead(200, { "Content-Type": "application/json" });
-  res.write(JSON.stringify(categories));
+  // res.writeHead(200, { "Content-Type": "application/json" });
+  res.status(JSON.stringify(categories));
   res.end();
 };
 
