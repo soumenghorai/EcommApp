@@ -3,6 +3,7 @@ const path = require("path");
 let catgoryRoutes = require("./categories.route");
 let productRoutes = require("./products.route");
 const authRoute = require("./auth.route");
+const cartRoute = require("./cart.route");
 let router = express.Router();
 
 router.get("/", (req, res, next) => {
@@ -15,5 +16,7 @@ router.use("/ecomm/api/v1/categories", catgoryRoutes);
 router.use("/ecomm/api/v1/products", productRoutes);
 
 router.use("/ecomm/api/v1/auth", authRoute);
+
+router.use("/ecomm/api/v1/cart", cartRoute);
 
 module.exports = router;

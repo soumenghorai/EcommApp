@@ -27,6 +27,12 @@ let signup = async (req, res) => {
       message: "User registered successfully",
     });
   }
+  else{
+   await user.setRoles([1]);
+    res.status(200).json({
+      message: "Registered with user role",
+    });
+  }
 };
 
 let signin  = async (req,res) => {

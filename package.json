@@ -4,7 +4,8 @@
   "description": "testecomm",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+    
   },
   "author": "soumenghorai",
   "license": "ISC",
@@ -16,5 +17,8 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.25.5"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
   }
 }
