@@ -11,3 +11,4 @@ let sum = (a, b) => {
     sum,
     square,
   };
+
